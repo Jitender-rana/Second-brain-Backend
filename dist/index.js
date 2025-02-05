@@ -25,13 +25,18 @@ const url = process.env.URL;
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+app.route("/*").get((req, res) => {
+    res.json({
+        status: "ok"
+    });
+});
 app.use("/user", user_1.userRouter);
 app.use("/content", content_1.contentRouter);
 app.use("/brain", sharebrain_1.ShareBrainRouter);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield mongoose_1.default.connect(process.env.Url);
+            yield mongoose_1.default.connect(url);
         }
         catch (e) {
             console.log(`erro while connect to mongodb databasde ${e}`);
