@@ -13,6 +13,11 @@ const url=process.env.URL;
 const app=express();
 app.use(cors());
 app.use(express.json());
+app.route("/*").get((req,res)=>{
+    res.json({
+        status: "ok"
+    })
+})
 app.use("/user",userRouter);
 app.use("/content",contentRouter);
 app.use("/brain",ShareBrainRouter);
