@@ -20,7 +20,7 @@ app.use("/brain",ShareBrainRouter);
 
 async function main(){
     try{
-        await mongoose.connect(process.env.Url!);
+        await mongoose.connect(url!);
 
     }catch(e){
         console.log(`erro while connect to mongodb databasde ${e}`);
