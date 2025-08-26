@@ -11,7 +11,18 @@ dotenv.config();
 const port=process.env.PORT;
 const url=process.env.URL;
 const app=express();
-app.use(cors());
+const allowedOrigins = [
+  "https://second-brain-frontend-gamma.vercel.app",
+  "http://localhost:3000", // keep for local testing
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 // app.route("/*").get((req,res)=>{
 //     res.json({
