@@ -27,8 +27,7 @@ Developers often save resources across multiple platforms. Second Brain centrali
 ### Backend
 - Node.js
 - Express.js
-- Prisma ORM
-- PostgreSQL
+- MongoDb
 - JWT Authentication
 - bcrypt for password security
 
